@@ -1,0 +1,56 @@
+* {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    background-color: #F4EBD9;
+    color: #483D3F;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+.flex {
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+a:hover {
+    color: #FF8600;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.intro {
+    margin-top: 40vh;
+    height: 100vh;
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+.container h1 {
+    font-weight: 600;
+}
+span {
+    color: #FF8600;
+}
+
+#intro {
+    height: 100vh;
+}
+.down-img {
+    margin-top: 80vh;
+}
+
+#contact {
+    height: 100vh;
+}
+.up-img {
+    margin-top: 10vh;
+}
