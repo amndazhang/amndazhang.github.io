@@ -1,11 +1,12 @@
 * {
-    font-family: 'Archivo Black', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     background-color: white;
     color: #483D3F;
 }
 
 h1 {
     font-size: 25px;
+    font-family: 'Archivo Black', sans-serif;
 }
 
 .flex {
