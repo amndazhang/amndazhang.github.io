@@ -1,44 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>personal website</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <!-- <script src="script.js"></script> -->
-  </head>
-  <body>
-    <div class = "intro" id="intro">
-        <h1 class = "name"><center>amanda zhang ✧</center></h1>
+* {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    background-color: #F4EBD9;
+    color: #483D3F;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    scroll-behavior: smooth;
+}
 
-        <!-- typing thing  -->
-        <div class="container">
-            <h1><span class="auto-type"></span></h1>
-        </div>
+h1 {
+    font-size: 25px;
+}
 
-        <p id="welcome"></p>
+.flex {
+    display: flex; 
+    flex-wrap: wrap; 
+}
 
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-        <script>
-            var typed = new Typed(".auto-type",{
-                strings: ["Hi!", "Welcome", "I'm Amanda Zhang"],
-                typeSpeed: 150,
-                backSpeed: 150,
-                loop: true
-            })
-        </script>
+a:hover {
+    color: #FF8600;
+    background-color: transparent;
+    text-decoration: underline;
+}
 
-
-
-    </div>
-
-    <h1>contact</h1>
-    <br>
-    <a href="https://github.com/amndazhang">github</a>
-    <a href="https://www.linkedin.com/in/amandazhanglele/">linkedin</a>
-    <a href="#https://www.instagram.com/amndazhang/">instagram</a>
-    <a href="https://open.spotify.com/user/amandazhanglele?si=f39836eec9b14fd3">spotify</a>
-
-
-  </body> 
-</html>
+.intro {
+    margin-top: 40vh;
+    background-size: cover;
+}
