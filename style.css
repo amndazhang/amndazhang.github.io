@@ -2,6 +2,7 @@
     font-family: 'Helvetica', sans-serif;
     background-color: white;
     color: #483D3F;
+    text-align: center;
 }
 
 h1 {
@@ -21,7 +22,7 @@ a:hover {
 }
 
 .intro {
-    margin-top: 3vh;
+    margin-top: 45vh;
     margin-left: 3vh;
     background-size: cover;
 }
