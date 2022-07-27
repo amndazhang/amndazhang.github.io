@@ -1,12 +1,7 @@
 * {
-    font-family: Helvetica, sans-serif;
-    text-align: center;
-    background-color: #F4EBD9;
+    font-family: 'Archivo Black', sans-serif;
+    background-color: white;
     color: #483D3F;
-    margin: 0;
-    align-items: center;
-    justify-content: center;
-    scroll-behavior: smooth;
 }
 
 h1 {
@@ -25,6 +20,7 @@ a:hover {
 }
 
 .intro {
-    margin-top: 40vh;
+    margin-top: 3vh;
+    margin-left: 3vh;
     background-size: cover;
 }
