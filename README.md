@@ -1,2 +1,2 @@
-## AMANDAS PERSONAL WEBSITE NEEDS WORK
-amndazhang.github.io
+## basic site
+-> amndazhang.github.io
