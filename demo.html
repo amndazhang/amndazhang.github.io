@@ -1,0 +1,41 @@
+<html>
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>URL to DOCX</title>
+</head>
+<body>
+
+
+    URL: <input type="url" id="myURL" placeholder="https://example.com" size="100" required>
+    <br>
+    <input type="button" id="button1" value="CLICK">
+    <p class="output" id="output1"></p>
+
+    
+    <script>
+      // get URL stuff
+      const URLbox = document.getElementById('myURL');
+      const button1 = document.getElementById('button1');
+      const out = document.getElementById('output1');
+      function getURL() {
+        out.innerHTML = URLbox.value;
+      }
+
+      button1.addEventListener('click', getURL);
+      
+      // actual implementation stuff
+      var Http = new XMLHttpRequest();
+      var endpoint = "https://extractorapi.com/api/v1/extractor";
+      var params = "apikey=7032e244a2b19b9dd4653e801f8b510ff22291ec&url=" + myFunction();
+
+      Http.open("GET", endpoint+"?"+params);
+      Http.send();
+
+      Http.onreadystatechange = (e) => {
+        console.log(Http.responseText)
+      }
+
+    </script>
+
+</body>
+</html>
