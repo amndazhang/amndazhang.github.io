@@ -1,2 +1,2 @@
 ## basic site
--> amndazhang.github.io
+<https://amndazhang.github.io>
