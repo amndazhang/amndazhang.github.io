@@ -30,17 +30,13 @@ h3 {
 .flex {
     display: flex; 
     flex-wrap: wrap; 
+    justify-content: center;
 }
 
 a:hover {
     color: #FF8600;
     background-color: transparent;
     text-decoration: underline;
-}
-
-.intro {
-    margin-top: 40px;
-    background-size: cover;
 }
 
 img {
@@ -59,3 +55,37 @@ img {
     left: 50px; 
     top: 50px; 
 } */
+
+/* blog stuff */
+.cards{
+    text-align: center;
+    justify-content: center;
+}
+
+.card{
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-botton: 10px;
+}
+
+.card p{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.card img{
+    width: 300px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.card-container{
+    text-align: center;
+    padding-bottom: 60px;
+}
+  
+.card.visited {
+box-shadow: 0 3px 10px 2px #444;
+}
