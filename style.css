@@ -50,18 +50,7 @@ img {
     width: 200px;
 }
 
-/* img {
-    position: absolute;
-    left: 50px; 
-    top: 50px; 
-} */
-
 /* blog stuff */
-.cards{
-    text-align: center;
-    justify-content: center;
-}
-
 .card{
     text-align: center;
     width: 400px;
@@ -71,21 +60,27 @@ img {
 }
 
 .card p{
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
 }
 
 .card img{
-    width: 300px;
+    width: 200px;
+    height: 200px;
     padding-top: 15px;
     padding-bottom: 10px;
 }
 
 .card-container{
-    text-align: center;
     padding-bottom: 60px;
 }
-  
-.card.visited {
-box-shadow: 0 3px 10px 2px #444;
+
+/* in blog text */
+.text{
+    margin-right: 300px;
+    margin-left: 300px;
+}
+
+p{
+    font-size: 16px;
 }
