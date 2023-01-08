@@ -40,6 +40,11 @@ a:hover {
 }
 
 img {
+    justify-content: center;
+    text-align: center;
+}
+
+.icon img {
     width: 30px;
     margin-right: 10px;
     margin-left: 10px;
