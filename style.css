@@ -20,6 +20,8 @@ h1 {
 h2 {
     font-size: 20px;
     font-family: "Yuji Syuku", serif;
+    text-decoration: none;
+    /* margin-bottom: 20px; */
 }
 
 p{
