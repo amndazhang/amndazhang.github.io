@@ -6,6 +6,12 @@
     margin-right: 10px;
 }
 
+img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
 h1 {
     font-size: 40px;
     font-family: "Yuji Syuku", serif;
@@ -19,6 +25,23 @@ h2 {
 p{
     font-size: 16px;
     font-family: "Noto Sans", sans-serif;
+}
+
+a:hover {
+    color: #000000;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+img {
+    justify-content: center;
+    text-align: center;
+}
+
+.icon img {
+    width: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 /* nav bar */
@@ -39,41 +62,25 @@ li a {
     text-decoration: none;
 }
 
+/* flex */
 .flex {
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center;
 }
 
-a:hover {
-    color: #000000;
-    background-color: transparent;
-    text-decoration: underline;
+.card-container{
+    width: 900;
+    /* padding-bottom: 60px; */
 }
 
-img {
-    justify-content: center;
+.card{
     text-align: center;
-}
-
-.icon img {
-    width: 30px;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-#pfp {
-    margin-top: 50px;
-    width: 200px;
-}
-
-/* blog stuff */
-/* .card{
-    text-align: center;
-    width: 400px;
-    height: 400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 50px;
+    width: 300px;
+    height: 300px;
+    /* box-shadow: 0 4px 8px 0 rgba(23, 25, 106, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    margin: 20px;
+    object-fit: cover;
 }
 
 .card p{
@@ -82,13 +89,25 @@ img {
 }
 
 .card img{
-    width: 200px;
-    height: 200px;
-    padding-top: 15px;
-    padding-bottom: 10px;
+    width: 300px;
+    height: 300px;
+    /* padding-top: 50px;
+    padding-bottom: 50px; */
 }
 
-.card-container{
-    padding-bottom: 60px;
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
 }
-*/
+
+.container:hover .overlay {
+    opacity: 0.5;
+}
