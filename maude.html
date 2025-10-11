@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f7f7f7;
+            background: #f7f7f7 url('bg.png') center center / cover no-repeat;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -56,8 +56,8 @@
 </head>
 <body>
     <div class="game-area" id="gameArea">
-        <span class="character" id="character" style="left: 50px; top: 50px;">🧑</span>
-        <span class="house" id="house" style="left: 400px; top: 200px;">🏠</span>
+    <img src="maud.png" class="house" id="house" style="left: 400px; top: 200px; width: 150px; height: 150px;" alt="House" />
+    <img src="doc.png" class="character" id="character" style="left: 50px; top: 50px; width: 150px; height: 150px;" alt="Character" />    
     </div>
     <div id="popup" class="popup" style="display:none;">
         <h2>You never visit me.</h2>
@@ -73,10 +73,10 @@
     const gameArea = document.getElementById('gameArea');
 
     let charPos = { left: 50, top: 50 };
-    let housePos = { left: 400, top: 200 };
+    let housePos = { left: 200, top: 200 };
     const step = 20;
-    const charSize = 40;
-    const houseSize = 40;
+    const charSize = 100;
+    const houseSize = 100;
 
     let popupOpen = false;
 
@@ -87,35 +87,43 @@
         character.style.top = charPos.top + 'px';
     }
 
-        function checkCollision() {
-            // Simple bounding box collision
-            const buffer = 10; // make it easier to trigger
-            if (
-                Math.abs(charPos.left - housePos.left) < charSize - buffer &&
-                Math.abs(charPos.top - housePos.top) < charSize - buffer
-            ) {
-                popup.style.display = 'block';
-                popupOpen = true;
-            }
+    function checkCollision() {
+        // Bounding box collision for 150x150px images
+        const charRect = {
+            left: charPos.left,
+            right: charPos.left + charSize,
+            top: charPos.top,
+            bottom: charPos.top + charSize
+        };
+        const houseRect = {
+            left: housePos.left,
+            right: housePos.left + houseSize,
+            top: housePos.top,
+            bottom: housePos.top + houseSize
+        };
+        if (
+            charRect.left < houseRect.right &&
+            charRect.right > houseRect.left &&
+            charRect.top < houseRect.bottom &&
+            charRect.bottom > houseRect.top
+        ) {
+            popup.style.display = 'block';
+            popupOpen = true;
         }
+    }
 
-        document.addEventListener('keydown', (e) => {
-            if (popupOpen) return;
-            let moved = false;
-            switch(e.key) {
-                case 'ArrowUp': moveCharacter(0, -step); moved = true; break;
-                case 'ArrowDown': moveCharacter(0, step); moved = true; break;
-                case 'ArrowLeft': moveCharacter(-step, 0); moved = true; break;
-                case 'ArrowRight': moveCharacter(step, 0); moved = true; break;
-            }
-            if (moved) checkCollision();
-        });
-
-    house.addEventListener('click', () => {
-        popup.style.display = 'block';
-        popupOpen = true;
+    document.addEventListener('keydown', (e) => {
+        if (popupOpen) return;
+        let moved = false;
+        switch(e.key) {
+            case 'ArrowUp': moveCharacter(0, -step); moved = true; break;
+            case 'ArrowDown': moveCharacter(0, step); moved = true; break;
+            case 'ArrowLeft': moveCharacter(-step, 0); moved = true; break;
+            case 'ArrowRight': moveCharacter(step, 0); moved = true; break;
+        }
+        if (moved) checkCollision();
     });
-
+    
     closePopup.addEventListener('click', () => {
         popup.style.display = 'none';
         popupOpen = false;
