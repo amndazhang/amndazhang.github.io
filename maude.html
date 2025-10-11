@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maude</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .game-area {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        .character {
+            position: absolute;
+            font-size: 2.5rem;
+            transition: left 0.1s, top 0.1s;
+            user-select: none;
+        }
+        .house {
+            position: absolute;
+            font-size: 2.5rem;
+            cursor: pointer;
+            user-select: none;
+        }
+        .popup {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            padding: 2rem;
+            z-index: 10;
+            text-align: center;
+        }
+        .popup button {
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: none;
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-area" id="gameArea">
+        <span class="character" id="character" style="left: 50px; top: 50px;">🧑</span>
+        <span class="house" id="house" style="left: 400px; top: 200px;">🏠</span>
+    </div>
+    <div id="popup" class="popup" style="display:none;">
+        <h2>You never visit me.</h2>
+        <p><div id="deployment-e3eca9a4-08d9-4dd5-9815-7f304254f51b"></div>
+            <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script></p>
+        <button id="closePopup">Close</button>
+    </div>
+    <script>
+    const character = document.getElementById('character');
+    const house = document.getElementById('house');
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('closePopup');
+    const gameArea = document.getElementById('gameArea');
+
+    let charPos = { left: 50, top: 50 };
+    let housePos = { left: 400, top: 200 };
+    const step = 20;
+    const charSize = 40;
+    const houseSize = 40;
+
+    let popupOpen = false;
+
+    function moveCharacter(dx, dy) {
+        charPos.left = Math.max(0, Math.min(window.innerWidth - charSize, charPos.left + dx));
+        charPos.top = Math.max(0, Math.min(window.innerHeight - charSize, charPos.top + dy));
+        character.style.left = charPos.left + 'px';
+        character.style.top = charPos.top + 'px';
+    }
+
+        function checkCollision() {
+            // Simple bounding box collision
+            const buffer = 10; // make it easier to trigger
+            if (
+                Math.abs(charPos.left - housePos.left) < charSize - buffer &&
+                Math.abs(charPos.top - housePos.top) < charSize - buffer
+            ) {
+                popup.style.display = 'block';
+                popupOpen = true;
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (popupOpen) return;
+            let moved = false;
+            switch(e.key) {
+                case 'ArrowUp': moveCharacter(0, -step); moved = true; break;
+                case 'ArrowDown': moveCharacter(0, step); moved = true; break;
+                case 'ArrowLeft': moveCharacter(-step, 0); moved = true; break;
+                case 'ArrowRight': moveCharacter(step, 0); moved = true; break;
+            }
+            if (moved) checkCollision();
+        });
+
+    house.addEventListener('click', () => {
+        popup.style.display = 'block';
+        popupOpen = true;
+    });
+
+    closePopup.addEventListener('click', () => {
+        popup.style.display = 'none';
+        popupOpen = false;
+        // Move house to a new random location
+        housePos.left = Math.floor(Math.random() * (window.innerWidth - houseSize));
+        housePos.top = Math.floor(Math.random() * (window.innerHeight - houseSize));
+        house.style.left = housePos.left + 'px';
+        house.style.top = housePos.top + 'px';
+    });
+
+    // Initial positions
+    character.style.left = charPos.left + 'px';
+    character.style.top = charPos.top + 'px';
+    house.style.left = housePos.left + 'px';
+    house.style.top = housePos.top + 'px';
+    </script>
+</body>
+</html>
